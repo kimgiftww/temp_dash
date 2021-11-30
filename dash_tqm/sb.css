@@ -1,0 +1,171 @@
+/* Hide export button */
+
+#table1 button.export {
+  display: none;
+}
+
+/* Turn off existing buttons */
+
+.radio-group .custom-control-input~.custom-control-label::before {
+  content: none;
+}
+
+.radio-group .custom-radio .custom-control-input~.custom-control-label::after {
+  content: none;
+}
+
+/* restyle radio items */
+
+.radio-group .custom-control {
+  padding: 0 0;
+  /* margin: 0 0; */
+  /* padding-left: 0; */
+  /* width:3.75rem */
+  /* font-size: xx-small; */
+  /* text-align: center; */
+}
+
+.radio-group .btn-group>.custom-control:not(:last-child)>.btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.radio-group .btn-group>.custom-control:not(:first-child)>.btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 0px -2px;
+  /* margin-left: -1px; */
+}
+
+/* responsive */
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  /* padding-bottom: 27px; */
+  font-family: Open Sans, sans-serif;
+  /* min-height: 100vh; */
+}
+
+/* #navbar {
+  padding: 1rem 0.6rem;
+} */
+
+#sidebar {
+  /* z-index: 1; */
+  /* position: relative; */
+  text-align: center;
+  padding: 0.6rem 0.6rem;
+  /* margin: 0 0; */
+  background-color: white;
+  /* background-color: #f1f4f8; */
+  /* background-color: #d9e2ef; */
+  /* background-color: #f8f9fa; */
+  /* background-color: #adb5bd;  */
+  /* background-color: #878b8f; */
+  /* background-color: #6c757d ; */
+  /* background-color: #343a40; */
+}
+
+/* #sidebar h2 {
+  text-align: left;
+  margin-bottom: 0;
+} */
+
+/* Hide the blurb on a small screen */
+
+#blurb {
+  display: none;
+}
+
+#sidebar-toggle {
+  display: none;
+}
+
+/* #collapse *:first-child {
+  margin-top: 1rem;
+} */
+
+#collapse {
+  margin-top: 1rem;
+}
+
+/* add the three horizontal bars icon for the toggle */
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* .navbar-toggler {
+  width: 47px;
+  height: 34px;
+  background-color: #7eb444;
+} */
+
+#page-content {
+  padding: 0 0 0 0;
+  /* background-color: #303030; */
+  min-height: 100vh;
+}
+
+/* #main {
+  height: 100vh;
+  overflow-x: hidden;
+} */
+
+@media (min-width: 48em) {
+  /* #main {
+    overflow-x: hidden;
+  } */
+  /* set margins of the main content so that it doesn't overlap the sidebar */
+  #page-content {
+    /* padding: 0rem 0rem 0rem 0rem; */
+    width: auto;
+    margin-left: 20rem;
+    margin-right: 0rem;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+    text-align: left;
+    transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+    /* z-index: -1; */
+  }
+  #sidebar-toggle {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: top 0.3s ease-in-out;
+  }
+  /* add negative margin to sidebar to achieve the collapse */
+  #sidebar.collapsed {
+    margin-left: -15.5rem;
+    padding-right: 0.5rem;
+  }
+  /* also adjust margin of page content */
+  #sidebar.collapsed~#page-content {
+    margin-left: 4.5rem;
+    /* margin-right: 0rem; */
+  }
+  /* move all contents of navbar other than header (containing toggle) further off-screen */
+  #sidebar.collapsed>*:not(:first-child) {
+    margin-left: -6rem;
+    margin-right: 6rem;
+  }
+  /* reveal the blurb on a large screen */
+  #blurb {
+    /* display: block; */
+    display: none;
+  }
+  /* Hide the toggle on a large screen */
+  #navbar-toggle {
+    display: none;
+  }
+  #collapse {
+    display: block;
+  }
+}
